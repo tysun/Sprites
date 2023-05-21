@@ -35,10 +35,14 @@ struct SpriteKitView: UIViewRepresentable {
     
     func makeUIView(context: Context) -> SKView {
         let skView = SKView()
-            skView.showsFPS = true
-            skView.showsNodeCount = true
-            skView.presentScene(scene)
-            return skView
+        skView.showsFPS = true
+        skView.showsNodeCount = true
+        skView.presentScene(scene)
+        
+        skView.frame = UIScreen.main.bounds
+        scene.scaleMode = .aspectFill
+        
+        return skView
     }
     
     // Don't need to update the view explicitly, you can remove this because in the SceneDelegate class, add the UIWindowSceneDelegate conformance to the class declaration to satisfy the protocol requirements.

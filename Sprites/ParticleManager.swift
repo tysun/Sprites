@@ -23,17 +23,18 @@ class ParticleManager {
         let firework = SKEmitterNode(fileNamed: "FireworksScene")!
         firework.position = CGPoint(x: scene.size.width / 2, y: 0)
         scene.addChild(firework)
-        
+
         let explodeAction = SKAction.run {
             firework.particleBirthRate = 0
         }
-        
+
         let removeAction = SKAction.run {
             firework.removeFromParent()
         }
-        
+
         let sequence = SKAction.sequence([explodeAction, SKAction.wait(forDuration: 2), removeAction])
         firework.run(sequence)
     }
+
 }
 
